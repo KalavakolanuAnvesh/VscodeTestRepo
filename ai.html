@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - XYZ Company Chatbots</title>
+    <link rel="stylesheet" href="ai.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form" onsubmit="return loginUser(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" autocomplete="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" autocomplete="current-password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        <p id="error-message" class="error-message"></p>
+    </div>
+    
+    <script>
+        function loginUser(event) {
+            event.preventDefault(); // Ensure form does not submit
+
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const errorMessage = document.getElementById("error-message");
+
+            errorMessage.textContent = ""; // Clear previous error message
+
+            if (!username || !password) {
+                errorMessage.textContent = "Username and password are required.";
+                return;
+            }
+            
+            // Simulating authentication
+            if (username === "admin" && password === "password123") {
+                errorMessage.textContent = "Logging in...";
+                setTimeout(() => {
+                    window.location.href = "index.html"; 
+                }, 1000); // Delay for better user experience
+            } else {
+                errorMessage.textContent = "Invalid username or password.";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Company Chatbots</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src=<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="data:image/png;base64,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"> <span>Bot company</span>
+            </div>
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                <li><a href="#chat"><i class="fas fa-comments"></i> Chatbots</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to Bot Company</h1>
+        <p>Your AI-powered assistance for HR, Management, and Support</p>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Bot Company specializes in AI-powered solutions for businesses. Our chatbots assist in automation, data analysis, and intelligent decision-making tools.</p>
+    </section>
+
+    <section id="chat">
+        <h2>Chat with Our Bots</h2>
+        <button onclick="openChat('Manager Bot')">Manager Bot</button>
+        <button onclick="openChat('HR Bot')">HR Bot</button>
+        <button onclick="openChat('Support Bot')">Support Bot</button>
+        <button onclick="openChat('Company Info Bot')">Company Info Bot</button>
+
+        <div id="chat-box" class="chat-box">
+            <div class="chat-header">
+                <span id="bot-name"></span>
+                <button onclick="closeChat()">❌</button>
+            </div>
+            <div id="chat-body" class="chat-body"></div>
+            <div class="chat-footer">
+                <input type="text" id="user-input" placeholder="Type your response...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:contact@botcompany.com">contact@botcompany.com</a></p>
+        <p>Phone: <a href="tel:+9234567890">+234567890</a></p>
+        <p>Address:6th floor,manjeera trinitry,hyderabad</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Bot Company. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
